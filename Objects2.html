@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects JS Basic 2/2</title>
+</head>
+<body>
+  <script>
+    //Extração dado de OBJ
+    var novoUsuario = {
+      nome: 'Joao',
+      idade: 17,
+      pais: 'Brasil',
+      anime: 'One Piece'
+    };
+
+    var { idade, nome } = novoUsuario;
+    console.log(idade, nome);
+
+    //Extraindo propriedade e armazenando em outra variavel
+    var { anime: desenho } = novoUsuario;
+    console.log(desenho);
+
+    //Extraindoi dado de OBJ filho
+    var novoUsuario2 = {
+      nome: {
+        primeiro : 'Joao',
+        ultimo: 'Godinho',
+      }
+    };
+  </script>
+</body>
+</html>

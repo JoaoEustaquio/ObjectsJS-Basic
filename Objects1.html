@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects JS Basic 1/2</title>
+</head>
+<body>
+  <script>
+    //Criando obj
+    var usuario = {
+      nome: 'Joao',
+      'ultimo-nome': 'Godinho',
+      idade: 17,
+      Peso: 99,
+    };
+    console.log(usuario);
+
+    //Adcionando propriedades ao obj
+    usuario.ano = 2021;
+    console.log(usuario);
+
+    //Deletando propriedades do obj
+    delete usuario.Peso
+
+    //Adicionado tipo ARRAY ao obj
+    usuario.hobbies = ['Música', 'Desenhar', 'Programar'];
+
+    //Adicionando um obj a outro obj
+    usuario.entretenimento = {
+      Animes: ['Blue Period', 'One Piece', 'Komi-san']
+    }
+    console.log(usuario);
+
+    //Criando outro OBJ
+    var usuario2 = {
+      digaOi: function(name) {
+        return `Olá ${name}`;
+      }
+    };
+ 
+    console.log(usuario2.digaOi('Luan'));
+
+    //Adicionando dados de fora
+    var corCabelo = 'Azul';
+
+    var usuario3 = {
+      nome: 'Rebecca',
+      idade: 20,
+      corCabelo,
+    };
+
+    console.log(usuario3);
+
+    //Merge de obj com Object.assign
+    var usuario4 = {
+      nome: 'Raquel',
+      idade: 29,
+    };
+
+    var extraInfo = { 
+      pais: 'Brasil',
+      estado: 'Rio de Janeiro'
+    };
+
+    var newUser = Object.assign({}, usuario4, extraInfo);
+    console.log(newUser);
+
+    //Merge de obj com operador spread
+    var usuario5 = {
+      ...usuario4,
+      ...extraInfo
+    };
+
+    console.log(usuario5);
+
+    //Getters e setters
+    var usuarios = [
+      {
+        nome: 'Henrique',
+        idade: 18
+      },
+      {
+        nome: 'Gerson',
+        idade: 41
+      },
+      {
+        nome: 'Eustáquio',
+        idade: 19
+      },
+    ];
+
+    console.log(usuarios[2].idade);
+
+    var usuario = {
+      posicao: 0,
+      get atual() {
+        return usuarios[this.posicao];
+      },
+
+      set atual(posicao) {
+        this.posicao = posicao;
+      },
+
+      proximo() {
+        ++this.posicao;
+      },
+
+      anterior() {
+        --this.posicao;
+      }
+    };
+
+    console.log(usuario.atual); //{ nome: 'Henrique', idade: 18}
+    usuario.proximo();
+
+    console.log(usuario.atual); //{ nome: 'Gerson', idade: 41}
+
+    usuario.proximo();
+    console.log(usuario.atual); //{ nome: 'Eustáquio', idade: 19}
+
+    usuario.anterior();
+    console.log(usuario.atual); //{ nome: 'Gerson', idade: 41}
+
+    usuario.atual = 0;
+    console.log(usuario.atual); //{ nome: 'Henrique', idade: 18}
+
+    usuario.atual = 2;
+    console.log(usuario.atual); //{ nome: 'Eustáquio', idade: 19}
+  </script>
+</body>
+</html>
