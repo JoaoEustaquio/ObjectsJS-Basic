@@ -18,18 +18,76 @@
 
     var { idade, nome } = novoUsuario;
     console.log(idade, nome);
+    console.log('');
 
     //Extraindo propriedade e armazenando em outra variavel
     var { anime: desenho } = novoUsuario;
     console.log(desenho);
+    console.log('');
 
     //Extraindoi dado de OBJ filho
     var novoUsuario2 = {
       nome: {
-        primeiro : 'Joao',
-        ultimo: 'Godinho',
+        primeiro : 'Bianca',
+        //ultimo: 'Mota',
       }
     };
+
+    var { nome: { primeiro }} = novoUsuario2;
+    console.log(primeiro);
+
+    //Definindo valor DEFAULT para dado inexistente
+    var { nome: { segundo =  'Pereira'}} = novoUsuario2;
+    console.log(segundo);
+    console.log('');
+
+    //Extraindo dados de funções
+    function imprimeUsuario({ nome, idade, sexo }) {
+      console.log(nome);
+      console.log(idade);
+      console.log(sexo);
+    }
+    
+    var usuarioFunction = {
+      nome: 'Yasmin Mota',
+      idade: 17,
+      sexo: 'F'
+    };
+
+    imprimeUsuario(usuarioFunction);
+    console.log('');
+
+    //Mostrando as chaves do OBJ
+    console.log(Object.keys(usuarioFunction));
+    console.log('');
+
+    //Mostrando os valores do OBJ
+    console.log(Object.values(usuarioFunction));
+    console.log('');
+
+    //Iteração: For
+    var props = Object.keys(usuarioFunction);
+    console.log(props);
+    
+    for(var i = 0; i < props.length; i++) {
+      //console.log(props[i]);
+      console.log('usuarioFunction', usuarioFunction[props[i]]);
+    }
+    console.log('');
+
+    //Usando For of
+    for(var prop of props) {
+      //console.log(props[i]);
+      console.log('usuarioFunction', usuarioFunction[prop]);
+    }
+    console.log('');
+
+    //Usando For in
+    for (var prop2 in usuarioFunction) {
+      if (usuarioFunction.hasOwnProperty(prop2)) {
+        console.log(prop2, usuarioFunction[prop2]);
+      }
+    }
   </script>
 </body>
 </html>
